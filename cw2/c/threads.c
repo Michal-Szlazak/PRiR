@@ -1,13 +1,6 @@
-#include <unistd.h>
-#include <signal.h>
 #include <stdio.h>
 #include <errno.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include <wait.h>
-#include <sys/shm.h>
-#include <sys/types.h>
-#include <sys/ipc.h>
 #include <sys/time.h>
 #include <pthread.h>
 #include <math.h>
