@@ -34,8 +34,8 @@ int main(int argc, char *argv[])
     FILE *fpa = fopen("data/genA.txt", "w");
     FILE *fpb = fopen("data/genB.txt", "w");
 
-    fprintf(fpa, "%d %d\n", ma, na);
-    fprintf(fpb, "%d %d\n", mb, nb);
+    fprintf(fpa, "%d\n%d\n", ma, na);
+    fprintf(fpb, "%d\n%d\n", mb, nb);
 
     for (int i = 0; i < ma; i++)
     {
