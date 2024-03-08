@@ -179,6 +179,30 @@ int main (int argc, char *argv[]) {
 
     printf("Time: %f result: %f\n", elapsed, *result);
     // print_matrix(C);
+
+    for(i=0; i< A.m; i++)
+    {
+        free(A.values[i]);
+    }
+    free(A.values);
+
+    for(i=0; i< B.m; i++)
+    {
+        free(B.values[i]);
+    }
+    free(B.values);
+
+    for(i=0; i< C.m; i++)
+    {
+        free(C.values[i]);
+    }
+    free(C.values);
+
+    free(intervals);
+    free(result);
+
+    fclose(fpa);
+    fclose(fpb);
 }
 
 void print_matrix(struct matrix A)
@@ -249,6 +273,8 @@ void* write_to_result(void *threadarg) {
         C.values[row][col] = s;
         pthread_mutex_unlock(&mutex);
     }
+
+    free(data);
     pthread_exit(NULL);
 }
 
@@ -278,6 +304,8 @@ void* calculate_forbenius(void *threadarg) {
     pthread_mutex_lock(&mutex);
     *(data->result) += s;
     pthread_mutex_unlock(&mutex);
+
+    free(data);
 
     pthread_exit(NULL);
 }
